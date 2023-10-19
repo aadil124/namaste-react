@@ -46,17 +46,38 @@ import ReactDOM from 'react-dom/client';
 //Episode 3
 
 
-const heading = React.createElement("h1", { id: "heading" }, "Namaste React")
-console.log(heading)
+// const heading = React.createElement("h1", { id: "heading" }, "Namaste React")
+// console.log(heading)
 
 //JSX 
 // JSX (transpile before its reaches to JS)-PARCEL-Babel
 //JSX => Babel transpile it to React.createElement => ReactElement -JS Object =>HTMLElement(render)
-const jsxHeading = <h1 id="heading">Namaste React Using JSX</h1>
 
-console.log(jsxHeading)
+//ReactElement
+const heading = (<h1 id="heading">Namaste React Using JSX</h1>)
+
+//ReactComponent 
+const Title = () => <h1 id="heading">Namaste React Using JSX</h1>
+
+const title = <h1>this is a title</h1>
+
+//Component Composition
+const HeadingComponent = () => {
+    return (
+        <div id="container">
+            <Title />
+            {title}
+            <h1>
+                This is a React Component
+            </h1>
+        </div>
+    )
+}
+
+// console.log(jsxHeading)
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-root.render(jsxHeading)
+// root.render(heading)
+root.render(<HeadingComponent />)
 
